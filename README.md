@@ -14,3 +14,21 @@ In der `package.json` Datei sehen Sie Skripte, unter anderem das Startskript fü
 - Die Portweiterleitungen können Sie bei Bedarf in Visual Studio Code im Reiter *Ports* einsehen und konfigurieren.
 
 Weitere Pakete können Sie mittels des Befehls `npm install -s <pkg>` installieren.# Stayzy
+
+
+Das ist der Link, den du später in deine Bewerbung schreiben kannst.
+
+---
+
+## 5. Git-Repository erstellen und pushen
+
+Im Projektordner:
+
+```bash
+git init
+git add .
+git commit -m "Initial commit: Stayzy WA Aufgabe 4"
+
+# Beispiel mit GitLab (URL aus deiner package.json)
+git remote add origin https://gitlab.iue.fh-kiel.de/wa/sose25/m1-priess/m1-d/wa-a4.git
+git push -u origin main
