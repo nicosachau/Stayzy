@@ -1,34 +1,74 @@
-# Labor 4 zum Modul Webanwendungen
+Funktionsbeschreibung: Stayzy – Ferienwohnungen & mehr
+Stayzy ist eine Webanwendung zur Buchung von Ferienwohnungen, die ein komfortables Suchen, Anzeigen und Buchen von Angeboten ermöglicht. Die Anwendung ist als Fullstack-Projekt umgesetzt – mit einem modernen Frontend (HTML, CSS, JavaScript) und einem eigenen Node.js/Express-Backend sowie einer SQLite-Datenbank für die Verwaltung aller Daten.
+Alle Features und Abläufe sind so gestaltet, dass sie einen reibungslosen Ablauf für Nutzer:innen und eine realistische Buchungsverwaltung ermöglichen.
 
-Zur Durchführung dieser Aufgabe benötigen Sie die Laufzeitumgebung *Node.js*. Die Installation der Laufzeitumgebung *Node.js* und eine Möglichkeit zur Entwicklung mit *Node.js* sind in der `README.md` im Repository der Aufgabe 1 beschrieben.
+1. Startseite – Wohnungsübersicht & Suche
+Beim Aufruf der Startseite (index.html) werden alle verfügbaren Ferienwohnungen aus der Datenbank angezeigt.
 
-Um Ihnen den Einstieg zu erleichtern, ist in diesem Repository ein grundlegendes *Node.js*-Projekt abgelegt. Ein *Node.js* Projekt erfordert eine Konfigurationsdatei `package.json`. Diese enthält Informationen über das Projekt und kann für den *Node Package Manager* mit dem Befehl `npm init` erzeugt werden.
+Jede Wohnung wird als Kachel mit Bild, Name, Ort, Typ, Preis und Bewertungen dargestellt.
 
-- In Ihrem geklonten Projekt editieren Sie bitte die `package.json`, sodass diese Ihrem Projekt entspricht.
+Die Wohnungen lassen sich filtern (z.B. nach Name, Typ, Ort, Preis, Bewertungen) und sortieren (z.B. nach Preis oder Bewertung).
 
-In der `package.json` Datei sehen Sie Skripte, unter anderem das Startskript für das Projekt. In dem Projekt ist als Dependency das Webframework *Express* gelistet. In der Datei `server.js` ist ein einfacher Webserver mit dem Webframework *Express* kodiert.
+Über einen “Details ansehen”-Button gelangt man zur jeweiligen Detailansicht.
 
-- Wechseln Sie in einer Shell in dem *Node.js* Container in das Projektverzeichnis und führen Sie den Befehl `npm install` aus, um die in der `package.json` Datei gelisteten Abhängigkeiten zu installieren. 
-- Starten Sie den Server mit dem `npm start` Befehl. Der Server startet in diesem Fall auf Port 80 (siehe Konfiguration in `server.js`).
-- In einem Webbrowser erreichen Sie den Server unter der Adresse `localhost:8081` (Port 8081 ergibt sich durch das Mapping des Ports des *Node.js* Containers, welches beim Starten des Containers über den Parameter `-p` spezifiziert wurde).
-- Die Portweiterleitungen können Sie bei Bedarf in Visual Studio Code im Reiter *Ports* einsehen und konfigurieren.
+Pagination/“Mehr laden”: Die Liste lädt schrittweise weitere Wohnungen.
 
-Weitere Pakete können Sie mittels des Befehls `npm install -s <pkg>` installieren.# Stayzy
+Ein Karten-Sidebar zeigt alle Wohnungen auf einer interaktiven Karte (Leaflet).
+
+2. Detailseite einer Wohnung
+Auf der Detailseite (detail.html) sieht man umfangreiche Informationen zu einer Wohnung: Bilder, Beschreibung, Ausstattung, Gastgeber:in, Bewertungen und die genaue Lage auf der Karte.
+
+Das Kalender-Widget zeigt die aktuelle Verfügbarkeit der Wohnung (tagesgenau). Ausgegraute/“booked” Tage sind nicht mehr buchbar.
+
+Der/die Nutzer:in kann einen Buchungszeitraum wählen (Start- und Enddatum).
+
+Nur freie Zeiträume können ausgewählt werden.
+
+Über den Button „Jetzt buchen“ gelangt man zur Buchungsseite, wobei die Wohnungs-ID und der gewählte Zeitraum per URL-Parameter übergeben werden.
+
+3. Buchungsseite
+Die Buchungsseite (buchen.html) zeigt nochmals die wichtigsten Infos zur ausgewählten Wohnung und dem gewählten Zeitraum.
+
+Nutzer:innen füllen ein Formular mit ihren persönlichen Daten (Name, Adresse, E-Mail, Telefonnummer) und wählen eine Zahlungsmethode (Kreditkarte, PayPal, Überweisung).
+
+Alle Felder sind Pflichtfelder (Frontend-Validierung).
+
+Nach dem Absenden wird geprüft, ob der gewünschte Zeitraum noch frei ist.
+
+Falls der Zeitraum bereits gebucht wurde, erscheint eine Fehlermeldung.
+
+Andernfalls wird die Buchung in der Datenbank gespeichert.
+
+Nach erfolgreicher Buchung wird der Zeitraum automatisch als “belegt” markiert und ist für andere Nutzer:innen nicht mehr auswählbar.
+
+4. Backend (API, Datenhaltung)
+Das Backend ist mit Node.js und Express geschrieben und stellt verschiedene REST-API-Endpunkte bereit:
+
+GET /api/apartments: Liste aller Wohnungen (für Startseite/Filterung)
+
+GET /api/apartments/:id: Details zu einer Wohnung
+
+GET /api/apartments/:id/available-dates: Gibt alle noch verfügbaren Tage für eine Wohnung zurück (berechnet anhand der Buchungen)
+
+GET /api/reviews: Gibt alle Bewertungen aus
+
+POST /api/bookings: Legt eine neue Buchung an (prüft dabei automatisch auf Überschneidungen mit bestehenden Buchungen)
+
+Die SQLite-Datenbank speichert alle relevanten Daten: Wohnungen, Buchungen, Bewertungen und Benutzer.
+
+Das Backend validiert alle Anfragen und verhindert doppelte Buchungen für denselben Zeitraum.
+
+5. Design und Usability
+Das Design ist responsiv und auf mobile Endgeräte angepasst.
+
+Einheitliche Farben, Buttons, Abstände, Container und Karten sorgen für ein konsistentes Nutzererlebnis.
+
+Header und Footer sind auf jeder Seite einheitlich gestaltet.
+
+Fehler- und Bestätigungsmeldungen geben dem User immer Feedback.
+
+Nutzung von KI:
+Es wurden in allen Teilen des Projektes, zur Erstellung von Code, sammeln von Ideen und Debugging, KI Sprachmodelle wie ChatGPT, Perplexity und Mistral AI, zur Hilfe benutzt.
 
 
-Das ist der Link, den du später in deine Bewerbung schreiben kannst.
-
----
-
-## 5. Git-Repository erstellen und pushen
-
-Im Projektordner:
-
-```bash
-git init
-git add .
-git commit -m "Initial commit: Stayzy WA Aufgabe 4"
-
-# Beispiel mit GitLab (URL aus deiner package.json)
-git remote add origin https://gitlab.iue.fh-kiel.de/wa/sose25/m1-priess/m1-d/wa-a4.git
-git push -u origin main
+(Dieser Text wurde mit Hilfe von ChatGPT 4.1 generiert, und dann ergänzt)
