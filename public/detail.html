@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stayzy | Wohnungsdetails</title>
+  <link rel="stylesheet" href="detail.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
+</head>
+<body>
+  <header id="hero">
+    <h1><a href="index.html">Stayzy</a></h1>
+    <form class="form-container" onsubmit="return false;">
+      <div class="input-container">
+        <input type="text" name="user" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+      </div>
+      <button id="login" type="submit">Log in</button>
+    </form>
+  </header>
+
+  <!-- Hauptinhalt: Detailbereich -->
+  <main class="container detail-container" id="detail-container">
+    <!-- Dynamische Wohnungsdetails werden hier eingefügt -->
+  </main>
+
+  <!-- Navigationsbuttons (Detailseiten) -->
+  <nav class="container nav-container">
+    <a id="prevBtn" class="back-link">Vorherige Wohnung</a>
+    <a href="index.html" class="back-link">Zurück zur Liste</a>
+    <a id="nextBtn" class="back-link">Nächste Wohnung</a>
+  </nav>
+
+  <footer id="footer">
+    <p>&copy; 2025 Stayzy.de alle Rechte vorbehalten</p>
+  </footer>
+
+  <script src="detail.js"></script>
+</body>
+</html>

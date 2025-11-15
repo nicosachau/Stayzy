@@ -1,0 +1,20 @@
+{
+  "name": "wa-a4",
+  "version": "1.0.0",
+  "description": "Aufgabe 4 des Web-Applications Modul.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.iue.fh-kiel.de/wa/sose25/m1-priess/m1-d/wa-a4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "sqlite3": "^5.1.7"
+  }
+}

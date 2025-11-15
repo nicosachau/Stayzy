@@ -1,0 +1,317 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: azure;
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  margin-top: 80px; 
+}
+
+#hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 40px; 
+  background-color: deepskyblue;
+  color: whitesmoke;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+#hero h1 {
+  font-size: 50px; 
+  margin: 0;
+}
+
+#hero h1 a {
+  color: blanchedalmond;
+  text-decoration: none;
+}
+
+/* Login-Formulare */
+
+.form-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+input {
+  border-radius: 4px;
+  border: 1px solid black;
+  padding: 6px;
+  margin-bottom: 10px;
+  width: 200px;
+}
+
+button {
+  margin-right: 50px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 15px;
+  background-color: ghostwhite;
+  color: black;
+}
+
+
+
+#controls input,
+#controls select {
+  padding: 8px;
+  padding-right: 125px;
+  margin-right: 10px;
+}
+
+
+h2 {
+  font-size: 18px; 
+  margin-left: 20px;
+}
+
+h4 {
+  font-size: 16px; 
+  margin-left: 20px;
+}
+
+/* Container für die gesamte Listenansicht */
+#wohnungsliste {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  align-items: stretch; 
+}
+
+
+.angebot {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.angebot:hover {
+  transform: translateY(-5px);
+}
+
+
+.angebot-item {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
+.wohnung-bild {
+  width: 100%; 
+  aspect-ratio: 16 / 9; 
+  object-fit: cover;
+  border-radius: 8px; 
+}
+
+
+.wohnung-info {
+  flex-grow: 1; 
+}
+
+.wohnung-details {
+  font-weight: 500;
+}
+
+
+.wohnung-details svg {
+  vertical-align: middle;
+  margin-bottom: 2px;
+  margin-top: 0;
+}
+
+.wohnung-info h2 {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: 0 0 10px;
+  max-height: 2.6em; 
+  overflow: auto;
+  text-overflow: ellipsis; 
+}
+
+.review-count {
+  color: #888;
+  font-weight: 200;
+  font-size: small;
+}
+
+
+.details-link {
+  display: inline-block;
+  padding: 8px 12px;
+  background: #4a90e2;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+  max-width: 160px;
+  white-space: nowrap;
+}
+
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#back-to-top {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+#load-more {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+
+#footer {
+  padding: 20px;
+  background: #081f37;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+@media (max-width: 480px) {
+  #hero {
+    padding: 10px 20px;       
+    flex-direction: column;   
+    text-align: center;       
+  }
+    
+  .form-container {
+    margin-top: 10px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  #wohnungsliste {
+    grid-template-columns: 1fr; 
+  }
+}
+
+/* Karte‑Sidebar */
+#mapToggle {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 1100;
+  padding: 10px 16px;
+  background: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  cursor: pointer;
+  margin-right: -5px;
+}
+
+#mapContainer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 600px;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+  transition: right 0.3s ease;
+  z-index: 1090;
+}
+
+#mapContainer.open {
+  right: 0;
+}
+
+#closeMap {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+
+.filterButton{
+  margin: 10px;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+.centered{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.ueberhang{
+ display: flex;
+ justify-content: space-around;
+ margin: auto;
+}
+.anwendenButton{
+  display: inline-block;
+  padding: 8px 12px;
+  background: #4a90e2;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+  max-width: 160px;
+  white-space: nowrap;
+  border: none;
+  height: 40px; 
+}
+.login-button{
+  display: inline-block;
+  padding: 8px 12px;
+  background: #081f37;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+  max-width: 160px;
+  white-space: nowrap;
+  border: none;
+  height: 40px; 
+}

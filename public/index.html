@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stayzy | Ferienwohnungen & mehr</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256‑Q+3k7YqfQdxpR+a3qB+z8OiiYkopbR1Z9h3hQ2/0iLk="
+  crossorigin=""
+/>
+
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256‑o9N1jHlfRziRfy3pWbv3xg77sFvU34X9n2MXM3Uxj04="
+  crossorigin=""
+></script>
+
+</head>
+<body>
+  <header id="hero">
+    <h1><a href="index.html">Stayzy</a></h1>   
+    <form class="form-container" onsubmit="return false;">
+      <div class="input-container">
+        <input type="text" name="user" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+      </div>
+      <button id="login" type="submit" class="login-button">Log in</button>
+    </form>
+  </header>
+    
+  
+
+    <!-- Container für den Hauptinhalt -->
+    <div class="container">
+        <h2>Willkommen bei Stayzy</h2>
+        <h4>Hier finden Sie die besten Ferienwohnungen und Unterkünfte in Salem, Oregon.</h4>
+        <div id="wohnungsliste"></div>
+
+        <div class="centered" id="filters">
+          <input class="filterButton" type="text" id="nameFilter" placeholder="Nach Name filtern">
+          <input class="filterButton" type="text" id="typeFilter" placeholder="Nach Typ filtern">
+          <input class="filterButton" type="text" id="neighbourhoodFilter" placeholder="Nach Stadtteil filtern">
+          <input class="filterButton" type="number" id="minRatingFilter" placeholder="Min. Bewertung">
+          <input class="filterButton" type="number" id="maxRatingFilter" placeholder="Max. Bewertung">
+          <div class="ueberhang">
+          <input class="filterButton" type="number" id="minPriceFilter" placeholder="Min. Preis">
+          <input class="filterButton" type="number" id="maxPriceFilter" placeholder="Max. Preis">
+         
+          <select class="filterButton" id="sortCriteria">
+            <option value="rating-asc">Bewertung aufsteigend</option>
+            <option value="rating-desc">Bewertung absteigend</option>
+            <option value="price-asc">Preis aufsteigend</option>
+            <option value="price-desc">Preis absteigend</option>
+          </select>
+          
+          <button class="anwendenButton" onclick="applyFilters()">Anwenden</button>
+        </div>
+      </div>
+    </div>
+
+
+<div style="text-align:center; margin: 30px;">
+    <button id="load-more" class="load-more" >
+      Mehr laden
+    </button>
+    <button id="back-to-top" style="padding: 12px 32px; font-size: 16px; background: #f0f0f0; color: #222; border: 1px solid #ccc; border-radius: 6px; cursor: pointer; margin-left: 20px;">
+      Zurück zum Anfang
+    </button>
+  </div>
+  
+
+  <div id="mapWrapper">
+    <button id="mapToggle">Karte</button>
+    <div id="mapContainer">
+      <button id="closeMap"></button>
+      <div id="map"></div>
+    </div>
+  </div>
+
+
+    <script src="main.js"></script>
+
+  <footer id="footer">
+    <p>&copy; 2025 Stayzy.de alle Rechte vorbehalten</p>
+  </footer>
+</body>
+</html>

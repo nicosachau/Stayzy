@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .
+    container_name: wa-a4
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+    volumes:
+      - ./:/app          # Code aus deinem Ordner in den Container
+      - /app/node_modules  # node_modules bleiben im Container
+    restart: unless-stopped
